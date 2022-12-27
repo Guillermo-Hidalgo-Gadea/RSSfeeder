@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>My self-hosted Audiobooks</title>
+  <link>https://GuillermoHidalgoGadea.com</link>
+  <description>RSS feed to my self-hosted Audiobooks</description>
+<item>
+    <title>Anatomy and Pysiology.mp3</title>
+    <link>https://rss.guillermohidalgogadea.com/Anatomy and Pysiology.mp3</link>
+    <description>This is a cool audiobook</description>
+    </item>
+    </channel>
+</rss>
+    
