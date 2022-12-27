@@ -9,6 +9,9 @@ server = config['server']
 username = config['username']
 password = config['password']
 directory = config['directory']
+source = config['source']
+
+# def xml parts
 
 # start server connection
 ftp = FTP(server)
@@ -18,6 +21,7 @@ ftp.login(username, password)
 files = ftp.nlst(directory)
 audiobooks = [file for file in files if 'mp3' in file]
 
+# import new audiobooks from source
 
 # write xml on server
 with open('RSS.xml', 'w') as f:
