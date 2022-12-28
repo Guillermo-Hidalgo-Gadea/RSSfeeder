@@ -4,7 +4,8 @@ import os, toml
 from ftplib import FTP
 
 # read config
-config = toml.load('config.toml')
+
+config = toml.load(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'config.toml'))
 server = config['server']
 username = config['username']
 password = config['password']
@@ -66,7 +67,8 @@ description = 'RSS feed to my self-hosted Audiobooks'
 start, end = xmlparser(title, link, description)
 
 # write rss feed as xml
-with open('RSS.xml', 'w') as f:
+rss_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'RSS.xml')
+with open(rss_file, 'w') as f:
     f.write(start)
 
     for item in audiobooks:
@@ -76,7 +78,7 @@ with open('RSS.xml', 'w') as f:
     f.write(end)
 
 # upload feed and quit connection
-with open('RSS.xml','rb') as feed:
+with open(rss_file,'rb') as feed:
     ftp.storbinary(f'STOR {directory}/index.html', feed)
 
 ftp.quit()
